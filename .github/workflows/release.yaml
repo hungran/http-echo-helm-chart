@@ -50,7 +50,7 @@ jobs:
             if [ -z "${pkg:-}" ]; then
               break
             fi
-            helm push "${pkg}" oci://ghcr.io/hungran/chart-repo-template
+            helm push "${pkg}" oci://ghcr.io/hungran/http-echo-helm-chart
           done
 
   release-gh-pages:
