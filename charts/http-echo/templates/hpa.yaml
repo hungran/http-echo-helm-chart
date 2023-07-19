@@ -25,7 +25,7 @@ spec:
         target:
           type: Utilization
           averageUtilization: {{ .Values.autoscaling.targetCPUUtilizationPercentage }}
-        {{- else -}}
+        {{- else }}
         targetAverageUtilization: {{ .Values.autoscaling.targetCPUUtilizationPercentage }}
         {{- end }}
     {{- end }}
@@ -37,7 +37,7 @@ spec:
         target:
           type: Utilization
           averageUtilization: {{ .Values.autoscaling.targetMemoryUtilizationPercentage }}
-        {{- else -}}
+        {{- else }}
         targetAverageUtilization: {{ .Values.autoscaling.targetMemoryUtilizationPercentage }}
         {{- end }}
     {{- end }}
