@@ -37,5 +37,6 @@ spec:
         averageUtilization: {{ .Values.autoscaling.targetMemoryUtilizationPercentage }}
         {{- else -}}
         targetAverageUtilization: {{ .Values.autoscaling.targetMemoryUtilizationPercentage }}
+        {{- end }}
     {{- end }}
 {{- end }}
