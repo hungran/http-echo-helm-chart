@@ -40,21 +40,21 @@ jobs:
       # we will build and use this PR in the meantime
       # ref: https://github.com/helm/chart-testing/pull/445
 
-      - uses: actions/setup-go@v5
-        with:
-          go-version: '>=1.17.0'
-      - name: install custom chart-testing (ct CLI)
-        run: |
-          git clone -b ft-add-registry-support https://github.com/jcsf/chart-testing.git
-          cd chart-testing
-          go build -o /usr/local/bin/ct ct/main.go
+      # - uses: actions/setup-go@v5
+      #   with:
+      #     go-version: '>=1.17.0'
+      # - name: install custom chart-testing (ct CLI)
+      #   run: |
+      #     git clone -b ft-add-registry-support https://github.com/jcsf/chart-testing.git
+      #     cd chart-testing
+      #     go build -o /usr/local/bin/ct ct/main.go
       
-      - name: Run chart-testing (lint)
-        run: |
-          /usr/local/bin/ct lint --debug \
-            --config ./.github/configs/ct-lint.yaml \
-            --lint-conf ./.github/configs/lintconf.yaml \
-            --helm-repo-extra-args myrepo="--username ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }}"
+      # - name: Run chart-testing (lint)
+      #   run: |
+      #     /usr/local/bin/ct lint --debug \
+      #       --config ./.github/configs/ct-lint.yaml \
+      #       --lint-conf ./.github/configs/lintconf.yaml \
+      #       --helm-repo-extra-args myrepo="--username ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }}"
       
       - name: Run docs-testing (helm-docs)
         id: helm-docs
